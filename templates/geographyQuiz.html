@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <h1>Geography Quiz</h1>
+    <p>Logged in as: {{g.user}}.</p>
+
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.capitalQ.label }}
+        {{ form.capitalQ() }}
+        {% for error in form.capitalQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.mountainQ.label }}
+        {{ form.mountainQ() }}
+        {% for error in form.mountainQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.rockQ.label }}
+        {{ form.rockQ() }}
+        {% for error in form.rockQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.stateQ.label }}
+        {{ form.stateQ() }}
+        {% for error in form.stateQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.populationQ.label }}
+        {{ form.populationQ() }}
+        {% for error in form.populationQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.submit(class="button") }}
+    </form>
+    {% if form.validate_on_submit() %}
+        <p>You got {{ points }} points out of 5. {{ feedback }}</p>
+        <p><a href="{{ url_for('geographyQuiz') }}">Try again?</a></p>
+    {% endif %}
+    <p><a href="{{ url_for('quiizes') }}">Return to Quizzes</a></p>
+
+{% endblock %}

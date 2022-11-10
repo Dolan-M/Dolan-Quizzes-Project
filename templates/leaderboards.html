@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <h1>Leaderboards</h1>
+    <p>Logged in as: {{g.user}}.</p>
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.quiz.label }}
+        {{ form.quiz() }}
+        {% for error in form.quiz.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.submit(class="button") }}
+    </form>
+    {% if leaderboard %}
+        <table>
+            <caption>Ordered by {{ caption }}</caption>
+            <tr>
+                <th>User ID</th>
+                <th>Wombats</th>
+                <th>History</th>
+                <th>Geography</th>
+                <th>Total</th>
+            </tr>
+            {% for user in leaderboard %}
+                <tr>
+                    <td>{{ user["user_id"] }}</td>
+                    <td>{{ user["wombatpoints"] }}</td>
+                    <td>{{ user["historypoints"] }}</td>
+                    <td>{{ user["geographypoints"] }}</td>
+                    <td>{{ user["totalpoints"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+{% endblock %}

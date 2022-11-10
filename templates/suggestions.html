@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+{% if g.user!="dolan" %}
+    <h1>Suggestion</h1>
+    <p>Logged in as: {{g.user}}</p>
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.suggestion.label }}
+        {{ form.suggestion() }}
+        {% for error in form.suggestion.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.submit() }}
+    </form>
+{% endif %}
+
+{% if g.user=="dolan" %}
+    <h1>Suggestions</h1>
+    {% if suggestions %}
+        <table>
+            <tr>
+                <th>User ID</th>
+                <th>Suggestion</th>
+                <th>Date</th>
+            </tr>
+            {% for user in suggestions %}
+                <tr>
+                    <td>{{ user["user_id"] }}</td>
+                    <td>{{ user["suggestion"] }}</td>
+                    <td>{{ user["date"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% elif not suggestions %}
+        <p>There are no suggestions at this time.</p>
+    {% endif %}
+{% endif %}
+
+{% endblock %}

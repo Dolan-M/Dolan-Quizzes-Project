@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <h1>All quizzes</h1>
+    {% if g.user %}
+        <p>Logged in as: {{g.user}}.</p>
+    {% endif %}
+    <table>
+        <caption>Choose a quiz!</caption>
+        <tr>
+            <td><a href="{{ url_for('wombatQuiz') }}">Wombats</a></td>
+        </tr>
+        <tr>
+            <td><a href="{{ url_for('historyQuiz') }}">History</a></td>
+        </tr>
+        <tr>
+            <td><a href="{{ url_for('geographyQuiz') }}">Geography</a></td>
+        </tr>
+    </table>
+
+{% endblock %}

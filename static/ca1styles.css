@@ -1,0 +1,106 @@
+/* Used w3schools.com as a reference */
+
+* {
+    font-family: sans-serif;
+}
+
+a:link, a:visited {
+    color: #d13e3ee1;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td, th {
+    vertical-align: middle;
+    border-bottom: 2px solid #d13e3ee1;
+    padding: 5px;
+}
+
+tr:hover {
+    background-color: lightgray;
+}
+
+th {
+    text-align: center;
+}
+
+caption {
+    height: 70px;
+    font-size: 15px;
+}
+
+.topnav {
+    background-color: #d13e3ee1;
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    text-align: center;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav .register, .topnav .login, .topnav .logout, .topnav .change {
+    float: right;
+}
+
+.topnav a:hover, .button:hover {
+    background-color: lightgray;
+    color: black;
+}
+
+.leaderboards {
+    padding: 2em;
+    margin: 2em auto;
+}
+
+label {
+    width: 5em;
+    clear: left;
+    margin-right: 1em;
+}
+    
+input {
+    margin-bottom: 1em;
+}
+
+select, text {
+    margin-bottom: 1.3em;
+}
+
+.button {
+    background-color: #d13e3ee1;
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+main {
+    padding: 70px 0;
+    border: 3px solid #d13e3ee1;
+    text-align: center;
+}
+
+li {
+    list-style-type:none;
+}
+
+footer {
+    text-decoration: underline;
+}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <h1>History Quiz</h1>
+    <p>Logged in as: {{g.user}}.</p>
+    
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.worldwarQ.label }}
+        {{ form.worldwarQ() }}
+        {% for error in form.worldwarQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.spaceQ.label }}
+        {{ form.spaceQ() }}
+        {% for error in form.spaceQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.assassinateQ.label }}
+        {{ form.assassinateQ() }}
+        {% for error in form.assassinateQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.presidentQ.label }}
+        {{ form.presidentQ() }}
+        {% for error in form.presidentQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.hitlerQ.label }}
+        {{ form.hitlerQ() }}
+        {% for error in form.hitlerQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.submit(class="button") }}
+    </form>
+    {% if form.validate_on_submit() %}
+        <p>You got {{ points }} points out of 5. {{ feedback }}</p>
+        <p><a href="{{ url_for('historyQuiz') }}">Try again?</a></p>
+    {% endif %}
+    <p><a href="{{ url_for('quiizes') }}">Return to Quizzes</a></p>
+
+{% endblock %}

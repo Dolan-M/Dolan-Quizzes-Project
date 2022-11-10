@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Dolan's Quizzes - {{ page }}</title>
+        <link rel="icon" href="{{ url_for('static', filename='tv.ico') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='ca1styles.css') }}" />
+    </head>
+    <body>
+        <header>
+            <div class="topnav">
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('quiizes') }}">Quizzes</a>
+                <a href="{{ url_for('leaderboards') }}">Leaderboards</a>
+                <a href="{{ url_for('suggestion') }}">Suggestion</a>
+                <a href="{{ url_for('attempts') }}">Past Attempts</a>
+                {% if g.user %}
+                    <a class="logout" href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
+                    <a class="register" href="{{ url_for('register') }}">Register</a>
+                    <a class="login" href="{{ url_for('login') }}">Login</a>
+                {% endif %}
+            </div>
+        </header>
+        <main>
+            {% block main_content %}
+            {% endblock %}
+        </main>
+        <footer>
+            <p>&copy; Dolan</p>
+        </footer>
+    </body>
+</html>

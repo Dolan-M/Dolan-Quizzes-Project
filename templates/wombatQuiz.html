@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <h1>Wombats Quiz</h1>
+    <p>Logged in as: {{g.user}}.</p>
+
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.speciesQ.label }}
+        {{ form.speciesQ() }}
+        {% for error in form.speciesQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.teethQ.label }}
+        {{ form.teethQ() }}
+        {% for error in form.teethQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.poopQ.label }}
+        {{ form.poopQ() }}
+        {% for error in form.poopQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.averageQ.label }}
+        {{ form.averageQ() }}
+        {% for error in form.averageQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.relativeQ.label }}
+        {{ form.relativeQ() }}
+        {% for error in form.relativeQ.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.submit(class="button") }}
+    </form>
+    {% if form.validate_on_submit() %}
+        <p>You got {{ points }} points out of 5. {{ feedback }}</p>
+        <p><a href="{{ url_for('wombatQuiz') }}">Try again?</a></p>
+    {% endif %}
+    <p><a href="{{ url_for('quiizes') }}">Return to Quizzes</a></p>
+
+{% endblock %}
